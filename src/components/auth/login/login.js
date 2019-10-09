@@ -15,7 +15,7 @@ class Login extends Component {
     }
 
     return (
-      <div className={styles.container}>
+      <>
         <h1>Welcome!</h1>
         <form onSubmit={(e) => {
           e.preventDefault()
@@ -26,20 +26,20 @@ class Login extends Component {
           <input name='password' type='password' placeholder='Password'/>
             <button type='submit'>LOGIN</button>
         </form>
-      </div>
+      </>
     );
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    isAuthenticated: state.auth.user,
+    isAuthenticated: state.auth && state.auth.user,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    userLogin: (userName) => dispatch(userLogin(userName))
+    userLogin: (userName, password) => dispatch(userLogin(userName, password))
   }
 }
 

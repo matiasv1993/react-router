@@ -17,7 +17,7 @@ class User extends Component {
     const { user, history } = this.props
     console.log('history: ', this.props)
     return (
-      <div className={styles.container}>
+      <>
         { history.length > 1 && <div onClick={() => this.handleBackClick(history)}>Go back</div> }
         <h1>User: { user && user.name }</h1>
         {
@@ -38,7 +38,7 @@ class User extends Component {
               {this.props.error.message}
             </div>
           )}
-      </div>
+      </>
     );
   }
 }

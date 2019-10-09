@@ -1,12 +1,3 @@
-.container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  background-color: #d4ac60;
-}
-
 .children {
   display: flex;
 }

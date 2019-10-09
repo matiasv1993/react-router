@@ -50,6 +50,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         auth: action.payload,
       }
+    case 'LOGOUT':
+      return {
+        ...state,
+        auth: {},
+      }
     default:
       return state
   }
@@ -105,6 +110,12 @@ export const userLogin = (user, password) => {
       user,
       password
     },
+  }
+}
+
+export const userLogout = () => {
+  return {
+    type: 'LOGIN',
   }
 }
 

@@ -18,7 +18,7 @@ class Users extends Component {
 
   render() {
     return (
-      <div className={styles.container}>
+      <>
         <h1>Users</h1>
         <input
           defaultValue={this.props.inputValue}
@@ -47,7 +47,7 @@ class Users extends Component {
             )
           })}
         </div>
-      </div>
+      </>
     );
   }
 }

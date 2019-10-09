@@ -6,7 +6,7 @@ import styles from './father.module.css'
 class Father extends Component {
   render() {
     return (
-      <div className={styles.container}>
+      <>
         <div>Father Counter: {this.props.counter}</div>
         <div className={styles.children}>
           <Child
@@ -20,7 +20,7 @@ class Father extends Component {
             minusLabel='click me for minus'
           />
         </div>
-      </div>
+      </>
     );
   }
 }
