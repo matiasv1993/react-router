@@ -5,11 +5,7 @@
   align-items: center;
   justify-content: flex-start;
   background-color: #d4ac60;
-}
-
-.userList {
-  display: flex;
-  flex-direction: column;
+  position: relative;
 }
 
 .user {

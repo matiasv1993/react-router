@@ -10,10 +10,10 @@ const filterUserSelector = createSelector(
     if (!inputValue) {
       return users
     } else {
-      const newList = users.filter(user => user.name.includes(inputValue))
+      const newList = users.filter(user => user.name.toLowerCase().includes(inputValue.toLowerCase()))
       return newList
     }
   }
 )
 
-export default filterUserSelector 
+export default filterUserSelector;

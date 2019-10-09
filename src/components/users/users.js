@@ -1,16 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { fetchUsers, saveInputValue } from '../../store'
 import filterUsers from '../../filterUsers'
 import styles from './users.module.css'
 
 class Users extends Component {
+  componentDidMount() {
+    // fetch users when mount component
+    this.props.fetchUsers()
+
+    // save name to filter in redux from query params
+    const params = new URLSearchParams(this.props.location.search)
+    const nameParam = params.get('name')
+    nameParam && this.props.saveInputValue(nameParam)
+  }
+
   render() {
     return (
       <div className={styles.container}>
-        <button onClick={this.props.fetchUsers}>
-          Fetch Users
-        </button>
+        <h1>Users</h1>
         <input
           defaultValue={this.props.inputValue}
           placeholder={'Search user'}
@@ -18,22 +27,23 @@ class Users extends Component {
             this.props.saveInputValue(e.target.value)
           }}
         />
-        {this.props.isFetching ? <div>loading</div> : null}
+        {this.props.isFetching && <div>loading</div>}
         {this.props.error
-          ? (
+          && (
             <div className={styles.error}>
               {this.props.error.message}
             </div>
-          ) : null}
-        <div>
+          )}
+        <div className={styles.userList}>
           {this.props.users.map(user => {
             return (
-              <div
+              <Link
                 className={styles.user}
                 key={user.id}
+                to={`user/${user.id}`}
               >
                 {user.name}
-              </div>
+              </Link>
             )
           })}
         </div>
