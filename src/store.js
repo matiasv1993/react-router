@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 const initialState = {
   counter: 0,
   users: [],
+  auth: {},
   isFetching: false,
   error: undefined,
   inputValue: '',
@@ -43,6 +44,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         inputValue: action.payload,
+      }
+    case 'LOGIN':
+      return {
+        ...state,
+        auth: action.payload,
       }
     default:
       return state
@@ -89,6 +95,16 @@ export const saveInputValue = (text) => {
   return {
     type: 'SAVE_INPUT_VALUE',
     payload: text,
+  }
+}
+
+export const userLogin = (user, password) => {
+  return {
+    type: 'LOGIN',
+    payload: {
+      user,
+      password
+    },
   }
 }
 

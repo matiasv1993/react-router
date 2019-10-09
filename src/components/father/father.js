@@ -31,6 +31,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = () => {}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Father);
+export default connect(mapStateToProps)(Father);
